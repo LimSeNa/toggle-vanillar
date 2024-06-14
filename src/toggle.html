@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Toggle With Vanillar JS</title>
+    <link rel="stylesheet" href="toggle.css">
+</head>
+<body>
+<div id="youtube-container"></div>
+<div id="blog-container"></div>
+<script>
+    const ref = {
+        youtube: [
+            { title: 'title1', content: 'content1' },
+            { title: 'title2', content: 'content2' },
+            { title: 'title3', content: 'content3' }
+        ],
+        blog: [
+            { title: 'title1', content: 'content1' },
+            { title: 'title2', content: 'content2' },
+            { title: 'title3', content: 'content3' }
+        ]
+    };
+
+    const youtubeContainer = document.getElementById('youtube-container');
+    const blogContainer = document.getElementById('blog-container');
+
+    ref.youtube.forEach(item => {
+        const itemDiv = document.createElement('div');
+
+        const title = document.createElement('p');
+        title.textContent = item.title;
+
+        const button = document.createElement('button');
+        button.className = 'toggle-btn';
+
+        const img = document.createElement('img');
+        img.className = 'toggle-img';
+        img.src = '../assets/toggleImg.png';
+        img.alt = 'toggleImg';
+
+        const span = document.createElement('span');
+        span.className = 'toggle-span';
+        span.textContent = '자세한 내용';
+
+        const content = document.createElement('p');
+        content.className = 'content';
+        content.textContent = item.content;
+
+        button.appendChild(img); // appendChild : 인수로 전달한 노드를 메서드를 호출한 노드의 마지막 노드로 추가
+        button.appendChild(span);
+        itemDiv.appendChild(title);
+        itemDiv.appendChild(button);
+        itemDiv.appendChild(content);
+        youtubeContainer.appendChild(itemDiv);
+
+        button.addEventListener('click', function () {
+            if (img.classList.contains('active')) { // classList : 어트리뷰트의 정보를 담은 DOMTokenList 객체 반환
+                img.classList.remove('active');
+                content.classList.remove('show');
+            } else {
+                img.classList.add('active');
+                content.classList.add('show');
+            }
+        });
+    });
+
+    ref.blog.forEach(item => {
+        const itemDiv = document.createElement('div');
+
+        const title = document.createElement('p');
+        title.textContent = item.title;
+
+        const button = document.createElement('button');
+        button.className = 'toggle-btn';
+
+        const img = document.createElement('img');
+        img.className = 'toggle-img';
+        img.src = '../assets/toggleImg.png';
+        img.alt = 'toggleImg';
+
+        const span = document.createElement('span');
+        span.className = 'toggle-span';
+        span.textContent = '자세한 내용';
+
+        const content = document.createElement('p');
+        content.className = 'content';
+        content.textContent = item.content;
+
+        button.appendChild(img); // appendChild : 인수로 전달한 노드를 메서드를 호출한 노드의 마지막 노드로 추가
+        button.appendChild(span);
+        itemDiv.appendChild(title);
+        itemDiv.appendChild(button);
+        itemDiv.appendChild(content);
+        youtubeContainer.appendChild(itemDiv);
+
+        button.addEventListener('click', function () {
+            if (img.classList.contains('active')) { // classList : 어트리뷰트의 정보를 담은 DOMTokenList 객체 반환
+                img.classList.remove('active');
+                content.classList.remove('show');
+            } else {
+                img.classList.add('active');
+                content.classList.add('show');
+            }
+        });
+    });
+</script>
+</body>
+</html>

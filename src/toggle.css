@@ -1,0 +1,30 @@
+.toggle-btn {
+    width: 100px;
+    height: 30px;
+    border: none;
+    background: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-img {
+    width: 20%;
+    height: 80%;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.toggle-img.active {
+    transform: rotate(90deg);
+}
+
+.content {
+    display: none;
+}
+
+.content.show {
+    display: block;
+}
+
